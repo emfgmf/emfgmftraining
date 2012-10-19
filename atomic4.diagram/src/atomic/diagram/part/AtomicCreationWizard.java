@@ -1,14 +1,19 @@
 package atomic.diagram.part;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
@@ -38,6 +43,11 @@ public class AtomicCreationWizard extends Wizard implements INewWizard {
 	 */
 	protected AtomicCreationWizardPage domainModelFilePage;
 
+	/**
+	 * @generated NOT
+	 */
+	protected AtomicCreationWizardPage corpusFilePage;
+	
 	/**
 	 * @generated
 	 */
@@ -97,7 +107,7 @@ public class AtomicCreationWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void addPages() {
 		diagramModelFilePage = new AtomicCreationWizardPage(
@@ -127,19 +137,43 @@ public class AtomicCreationWizard extends Wizard implements INewWizard {
 		domainModelFilePage
 				.setDescription(Messages.AtomicCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
+		
+		corpusFilePage = new AtomicCreationWizardPage(
+				"CorpusFile", getSelection(), "txt"); //$NON-NLS-1$ //$NON-NLS-2$
+		corpusFilePage
+				.setTitle("Load Corpus File");
+		corpusFilePage
+				.setDescription("Select a Corpus File");
+		addPage(corpusFilePage);
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean performFinish() {
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 
 			public void run(IProgressMonitor monitor)
 					throws InvocationTargetException, InterruptedException {
+
+				String path = corpusFilePage.getContainerFullPath().toOSString();
+				if (!new File(path).exists())
+					ErrorDialog.openError(getContainer().getShell(),
+							Messages.AtomicCreationWizardOpenEditorError,
+							"",
+							new Status(IStatus.ERROR, "atomic4.diagram",  path + "does not exist!"));
+				File file = new File(path + corpusFilePage.getFileName());
+				if (!file.exists())
+					ErrorDialog.openError(getContainer().getShell(),
+							Messages.AtomicCreationWizardOpenEditorError,
+							"",
+							new Status(IStatus.ERROR, "atomic4.diagram",  file.toString() + "does not exist!"));
+				
 				diagram = AtomicDiagramEditorUtil.createDiagram(
 						diagramModelFilePage.getURI(),
-						domainModelFilePage.getURI(), monitor);
+						domainModelFilePage.getURI(),
+						file, 
+						monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						AtomicDiagramEditorUtil.openDiagram(diagram);

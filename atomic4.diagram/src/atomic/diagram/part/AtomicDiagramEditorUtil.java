@@ -52,6 +52,7 @@ import org.eclipse.ui.PlatformUI;
 import atomic.AGraph;
 import atomic.AtomicFactory;
 import atomic.diagram.edit.parts.AGraphEditPart;
+import static atomic.tokenizer.AtomicTokenizer.tokenizeAndAddTokensToGraph;
 
 /**
  * @generated
@@ -169,9 +170,9 @@ public class AtomicDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public static Resource createDiagram(URI diagramURI, URI modelURI,
+	public static Resource createDiagram(URI diagramURI, URI modelURI, final File corpusTextFile, 
 			IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
@@ -181,6 +182,9 @@ public class AtomicDiagramEditorUtil {
 				.createResource(diagramURI);
 		final Resource modelResource = editingDomain.getResourceSet()
 				.createResource(modelURI);
+		
+		
+		
 		final String diagramName = diagramURI.lastSegment();
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
 				editingDomain,
@@ -190,6 +194,9 @@ public class AtomicDiagramEditorUtil {
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				AGraph model = createInitialModel();
+				
+				tokenizeAndAddTokensToGraph(corpusTextFile, model);
+
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,
@@ -213,8 +220,11 @@ public class AtomicDiagramEditorUtil {
 					AtomicDiagramEditorPlugin.getInstance().logError(
 							"Unable to store model and diagram resources", e); //$NON-NLS-1$
 				}
+				
 				return CommandResult.newOKCommandResult();
 			}
+
+			
 		};
 		try {
 			OperationHistoryFactory.getOperationHistory().execute(command,

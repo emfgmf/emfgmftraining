@@ -6,6 +6,7 @@ import atomic.AEdge;
 import atomic.AGraph;
 import atomic.AStructured;
 import atomic.AToken;
+import atomic.AtomicFactory;
 import atomic.AtomicPackage;
 
 import java.util.Collection;
@@ -150,7 +151,12 @@ public class AGraphImpl extends EObjectImpl implements AGraph {
 	 */
 	public EList<AToken> getTokens() {
 		if (tokens == null) {
-			tokens = new EObjectContainmentWithInverseEList<AToken>(AToken.class, this, AtomicPackage.AGRAPH__TOKENS, AtomicPackage.ATOKEN__GRAPH);
+			tokens = new EObjectContainmentWithInverseEList<AToken>(AToken.class, this, AtomicPackage.AGRAPH__TOKENS, AtomicPackage.ATOKEN__GRAPH){@Override
+			public boolean add(AToken object) {
+				System.out.println(object.getText() + " got added.");
+				new Exception().printStackTrace();
+				return super.add(object);
+			}};
 		}
 		return tokens;
 	}
