@@ -1,0 +1,7 @@
+# Tracing options for the atomic4.diagram plug-in
+
+# Common issues
+atomic4.diagram/debug=false
+
+# Visual IDs
+atomic4.diagram/debug/visualID=false

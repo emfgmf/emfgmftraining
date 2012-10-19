@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/atomic4/model/atomic.genmodel
+gmf_dashboard/domainModel=platform\:/resource/atomic4/model/atomic.ecore
+gmf_dashboard/generationModel=platform\:/resource/atomic4/model/atomic.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/atomic4/model/atomic.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/atomic4/model/atomic.gmfmap
+gmf_dashboard/option_rcp=*
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/atomic4/model/atomic.gmftool

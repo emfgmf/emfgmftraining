@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/atomic4/src" modelPluginID="atomic4" modelName="Atomic"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    runtimePlatform="RCP">
+  <foreignModel>atomic.ecore</foreignModel>
+  <genPackages prefix="Atomic" disposableProviderFactory="true" ecorePackage="atomic.ecore#/">
+    <genClasses ecoreClass="atomic.ecore#//AGraph">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference atomic.ecore#//AGraph/tokens"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference atomic.ecore#//AGraph/structures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atomic.ecore#//AGraph/corpus"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference atomic.ecore#//AGraph/edges"/>
+    </genClasses>
+    <genClasses ecoreClass="atomic.ecore#//AToken">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atomic.ecore#//AToken/next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atomic.ecore#//AToken/previous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute atomic.ecore#//AToken/text"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference atomic.ecore#//AToken/graph"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="atomic.ecore#//ANode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference atomic.ecore#//ANode/targetedges"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="atomic.ecore#//XAnnotable"/>
+    <genClasses ecoreClass="atomic.ecore#//AStructured">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference atomic.ecore#//AStructured/graph"/>
+    </genClasses>
+    <genClasses ecoreClass="atomic.ecore#//AEdge">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference atomic.ecore#//AEdge/graph"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atomic.ecore#//AEdge/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atomic.ecore#//AEdge/target"/>
+    </genClasses>
+    <genClasses ecoreClass="atomic.ecore#//ATargetEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atomic.ecore#//ATargetEdge/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference atomic.ecore#//ATargetEdge/graph"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
