@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xsi:schemaLocation="http://www.eclipse.org/emf/2002/Ecore platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xcore#/EPackage" xmi:id="_IHGxYBn1EeK_3rMy0NhjkQ" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_IHP7UBn1EeK_3rMy0NhjkQ" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_IHP7Uxn1EeK_3rMy0NhjkQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_IHP7VBn1EeK_3rMy0NhjkQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_IHP7XBn1EeK_3rMy0NhjkQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="xcoretest.ecore#//Test/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_IHP7XRn1EeK_3rMy0NhjkQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_IHP7VRn1EeK_3rMy0NhjkQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_IHP7Vhn1EeK_3rMy0NhjkQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_IHP7Vxn1EeK_3rMy0NhjkQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_IHP7WBn1EeK_3rMy0NhjkQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_IHP7WRn1EeK_3rMy0NhjkQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_IHP7Whn1EeK_3rMy0NhjkQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_IHP7Wxn1EeK_3rMy0NhjkQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_IHP7URn1EeK_3rMy0NhjkQ" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="xcoretest.ecore#//Test"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IHP7Uhn1EeK_3rMy0NhjkQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_IHGxYRn1EeK_3rMy0NhjkQ"/>
+  <element xmi:type="ecore:EPackage" href="xcoretest.ecore#/"/>
+</notation:Diagram>

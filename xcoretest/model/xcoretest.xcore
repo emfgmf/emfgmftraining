@@ -1,0 +1,5 @@
+package xcoretest
+
+class Test {
+	String name
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="xcoretest" nsURI="xcoretest" nsPrefix="xcoretest">
+  <eClassifiers xsi:type="ecore:EClass" name="Test">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false" eType="ecore:EDataType archive:file:/C:/Program%20Files%20(x86)/eclipse%20juno%20sr1/plugins/org.eclipse.emf.ecore_2.8.1.v20120911-0500.jar!/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
